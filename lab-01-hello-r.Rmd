@@ -16,7 +16,7 @@ library(datasauRus)
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+Basedo n the text it has 1846 rows and 3 columns. The variables are the dataset, indicating which dataset the data comes from, and x/y.
 
 ### Exercise 2
 
@@ -25,17 +25,17 @@ The answers for this Exercise are given for you below. But you should clean up s
 First let's plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
-dino_data <- datasaurus_dozen %>%
-  filter(dataset == "dino")
-
-ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+datasaurus_dozen %>%
+  filter(dataset == "dino") %>%
+  ggplot(aes(x = x, y = y)) +
   geom_point()
 ```
 
 And next calculate the correlation between `x` and `y` in this dataset:
 
 ```{r cor-dino}
-dino_data %>%
+datasaurus_dozen %>%
+  filter(dataset == "dino") %>%
   summarize(r = cor(x, y))
 ```
 
